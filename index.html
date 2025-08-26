@@ -1,88 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Crypto Clicker</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #111;
-      color: #eee;
-    }
-    #clicker {
-      font-size: 2em;
-      padding: 20px 40px;
-      margin: 20px;
-      background: #28a745;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-    }
-    #shop {
-      margin-top: 30px;
-    }
-    .upgrade {
-      margin: 10px;
-      padding: 10px;
-      background: #333;
-      border-radius: 8px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Clicker Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>💰 Crypto Clicker</h1>
-  <p>Coins: <span id="coins">0</span></p>
-  <button id="clicker">Mine Coin</button>
-
-  <div id="shop">
-    <h2>🛒 Upgrades</h2>
-    <div class="upgrade">
-      <p>Auto Miner (+1/sec) - Cost: 50</p>
-      <button onclick="buyAutoMiner()">Buy</button>
-    </div>
-    <div class="upgrade">
-      <p>Double Click Power - Cost: 100</p>
-      <button onclick="buyDoubleClick()">Buy</button>
-    </div>
-  </div>
-
-  <script>
-    let coins = 0;
-    let clickPower = 1;
-    let autoMinerRate = 0;
-
-    document.getElementById("clicker").onclick = () => {
-      coins += clickPower;
-      updateCoins();
-    };
-
-    function updateCoins() {
-      document.getElementById("coins").textContent = coins;
-    }
-
-    function buyAutoMiner() {
-      if (coins >= 50) {
-        coins -= 50;
-        autoMinerRate += 1;
-        updateCoins();
-      }
-    }
-
-    function buyDoubleClick() {
-      if (coins >= 100) {
-        coins -= 100;
-        clickPower *= 2;
-        updateCoins();
-      }
-    }
-
-    setInterval(() => {
-      coins += autoMinerRate;
-      updateCoins();
-    }, 1000);
-  </script>
+  <h1>💰 Coin Clicker</h1>
+  <div id="coin-display">Coins: 0</div>
+  <button id="click-button">Click Me!</button>
+  <div id="upgrades"></div>
+  <script src="script.js"></script>
 </body>
 </html>
